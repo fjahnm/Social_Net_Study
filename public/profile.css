@@ -1,0 +1,137 @@
+/* Container principal para alinhar as seções lado a lado */
+.main-container {
+    display: flex; /* Utiliza flexbox para alinhamento */
+    gap: 20px; /* Espaçamento entre as seções */
+    flex-wrap: wrap; /* Permite que as seções quebrem linha em telas menores */
+}
+
+/* Seção de amigos */
+.friends-section {
+    background-color: #f9f9f9;  /* Cor de fundo similar à das postagens */
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    width: 300px; /* Largura fixa para a seção de amigos */
+    flex-shrink: 0; /* Evita que a seção de amigos encolha */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona um leve sombreamento */
+}
+
+/* Container para os cards dos amigos */
+.friends-container {
+    display: flex;
+    flex-direction: column; /* Alinha os cards verticalmente */
+    gap: 15px; /* Espaçamento entre os cards */
+}
+
+/* Estilo para o card de cada amigo */
+.friend-card {
+    display: flex;
+    align-items: center; /* Alinha a imagem e o texto verticalmente */
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%; /* Ocupa toda a largura disponível do container */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Adiciona um leve sombreamento */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animação de hover */
+}
+
+.friend-card:hover {
+    transform: translateY(-2px); /* Leve elevação no hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Informações do amigo */
+.friend-info {
+    display: flex;
+    align-items: center; /* Alinha verticalmente a imagem e o nome */
+    gap: 10px; /* Espaço entre a imagem e o texto */
+}
+
+.friend-info img {
+    margin: 0; /* Remove margens padrão ao redor da imagem */
+}
+
+/* Nome do amigo */
+.friend-name {
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.friend-name:hover {
+    text-decoration: underline;
+}
+
+/* Estilos adicionais para a imagem de perfil pequena */
+.profile-pic-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd; /* Pequeno contorno para destaque */
+}
+
+/* Seção de postagens */
+.user-posts {
+    flex: 1; /* Ocupa o restante da largura disponível */
+    max-width: 800px; /* Define uma largura máxima */
+}
+
+/* Estilos das abas */
+.tabs {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #e2e2e2;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab-btn.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: #ccc;
+}
+
+/* Conteúdo das abas */
+.tab-content {
+    display: none; /* Esconde o conteúdo inicialmente */
+}
+
+.tab-content.active {
+    display: block; /* Mostra o conteúdo ativo */
+}
+
+/* Estilos dos posts */
+.post {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagem de perfil grande */
+.profile-picture {
+    width: 100%;
+    max-width: 324px;
+    height: 385px;
+    object-fit: cover; /* Mantém a proporção e corta se necessário */
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: white;
+} 

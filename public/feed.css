@@ -1,0 +1,126 @@
+/* Resetando alguns estilos padrão */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#new-post form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilizando os posts */
+#feed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.profile-pic-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.post-image {
+    width: 100%;
+    max-width: 382px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.post-date {
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.vote-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.vote-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.vote-button.active {
+    color: #4CAF50;
+}
+
+.delete-form button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.delete-form button:hover {
+    background-color: #e53935;
+}
