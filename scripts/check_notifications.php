@@ -11,21 +11,17 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Consulta para contar mensagens não lidas
 $stmt = $pdo->prepare("SELECT COUNT(*) AS count FROM messages WHERE receiver_id = ? AND read_status = 'unread'");
 $stmt->execute([$user_id]);
 $message_count = $stmt->fetchColumn();
 
-// Consulta para contar solicitações de amizade pendentes
 $stmt = $pdo->prepare("SELECT COUNT(*) AS count FROM friend_requests WHERE receiver_id = ? AND status = 'pending'");
 $stmt->execute([$user_id]);
 $friend_request_count = $stmt->fetchColumn();
 
-// Limitar os contadores a 99
 $message_count = min($message_count, 99);
 $friend_request_count = min($friend_request_count, 99);
 
-// Consulta para buscar detalhes das notificações (separadas por tipo, como mensagens e outras)
 $stmt = $pdo->prepare("
     SELECT n.*, u.username, m.content AS message_content
     FROM notifications n
@@ -42,10 +38,8 @@ foreach ($notifications as $notification) {
     $notificationText = '';
     $link = '';
 
-    // Processar diferentes tipos de notificações
     switch ($notification['type']) {
         case 'message':
-            // Contar quantas mensagens o usuário enviou
             $messageCount = 1;
             foreach ($notifications as $n) {
                 if ($n['type'] === 'message' && $n['sender_id'] === $notification['sender_id'] && $n['id'] !== $notification['id']) {
@@ -56,7 +50,6 @@ foreach ($notifications as $notification) {
             $link = "messages.php?user_id=" . $notification['sender_id'];
             break;
 
-        // Outros tipos de notificação podem ser adicionados aqui
     }
 
     $notificationData[] = [
@@ -65,7 +58,6 @@ foreach ($notifications as $notification) {
     ];
 }
 
-// Retorna o total de notificações, além das contagens de mensagens e solicitações de amizade
 echo json_encode([
     'message_count' => $message_count,
     'friend_request_count' => $friend_request_count,
