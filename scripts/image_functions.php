@@ -4,11 +4,9 @@ function resizeProfileImage($file, $width, $height) {
     $src = imagecreatefromstring(file_get_contents($file));
     $dst = imagecreatetruecolor($width, $height);
     
-    // Preencher com fundo branco
     $white = imagecolorallocate($dst, 255, 255, 255);
     imagefill($dst, 0, 0, $white);
     
-    // Calcular as dimensões da imagem para centralizar o recorte
     $ratio_orig = $orig_width / $orig_height;
     $ratio_new = $width / $height;
 
@@ -24,7 +22,6 @@ function resizeProfileImage($file, $width, $height) {
         $src_y = ($new_height - $height) / 2;
     }
     
-    // Redimensionar e cortar a imagem
     imagecopyresampled($dst, $src, 0, 0, $src_x, $src_y, $width, $height, $new_width, $new_height);
     
     return $dst;
