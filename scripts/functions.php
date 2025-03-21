@@ -1,5 +1,4 @@
 <?php
-// Funções de utilidade geral
 
 function redirect($url) {
     header("Location: " . BASE_URL . "/" . $url);
@@ -20,7 +19,6 @@ function sanitizeInput($input) {
     return htmlspecialchars(strip_tags(trim($input)));
 }
 
-// Funções relacionadas ao usuário
 
 function getUserById($userId) {
     global $pdo;
@@ -47,8 +45,6 @@ function updateProfile($userId, $postData, $files) {
         }
     }
 }
-
-// Funções relacionadas a posts
 
 function createPost($userId, $content, $communityId = null) {
     global $pdo;
@@ -84,8 +80,6 @@ function getCommunityPosts($userId) {
     return $stmt->fetchAll();
 }
 
-// Funções relacionadas a amizades
-
 function getFriendRequest($senderId, $receiverId) {
     global $pdo;
     $stmt = $pdo->prepare("
@@ -111,8 +105,6 @@ function getUserFriends($userId) {
     return $stmt->fetchAll();
 }
 
-// Funções relacionadas a comunidades
-
 function getCommunities() {
     global $pdo;
     $stmt = $pdo->prepare("SELECT * FROM communities ORDER BY name");
@@ -130,8 +122,6 @@ function getUserCommunities($userId) {
     $stmt->execute([$userId]);
     return $stmt->fetchAll();
 }
-
-// Funções relacionadas a mensagens
 
 function getConversations($userId) {
     global $pdo;
@@ -173,11 +163,9 @@ function sendMessage($senderId, $receiverId, $message) {
     $stmt = $pdo->prepare("INSERT INTO messages (sender_id, receiver_id, message) VALUES (?, ?, ?)");
     $stmt->execute([$senderId, $receiverId, $message]);
     
-    // Criar notificação para o destinatário
     createNotification($receiverId, "Você recebeu uma nova mensagem de " . $_SESSION['username']);
 }
 
-// Funções relacionadas a notificações
 
 function createNotification($userId, $message) {
     global $pdo;
