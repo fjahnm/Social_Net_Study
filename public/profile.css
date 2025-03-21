@@ -1,58 +1,52 @@
-/* Container principal para alinhar as seções lado a lado */
 .main-container {
-    display: flex; /* Utiliza flexbox para alinhamento */
-    gap: 20px; /* Espaçamento entre as seções */
-    flex-wrap: wrap; /* Permite que as seções quebrem linha em telas menores */
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-/* Seção de amigos */
 .friends-section {
-    background-color: #f9f9f9;  /* Cor de fundo similar à das postagens */
+    background-color: #f9f9f9;
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 8px;
-    width: 300px; /* Largura fixa para a seção de amigos */
-    flex-shrink: 0; /* Evita que a seção de amigos encolha */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona um leve sombreamento */
+    width: 300px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Container para os cards dos amigos */
 .friends-container {
     display: flex;
-    flex-direction: column; /* Alinha os cards verticalmente */
-    gap: 15px; /* Espaçamento entre os cards */
+    flex-direction: column;
+    gap: 15px;
 }
 
-/* Estilo para o card de cada amigo */
 .friend-card {
     display: flex;
-    align-items: center; /* Alinha a imagem e o texto verticalmente */
+    align-items: center;
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    width: 100%; /* Ocupa toda a largura disponível do container */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Adiciona um leve sombreamento */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animação de hover */
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .friend-card:hover {
-    transform: translateY(-2px); /* Leve elevação no hover */
+    transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-/* Informações do amigo */
 .friend-info {
     display: flex;
-    align-items: center; /* Alinha verticalmente a imagem e o nome */
-    gap: 10px; /* Espaço entre a imagem e o texto */
+    align-items: center;
+    gap: 10px;
 }
 
 .friend-info img {
-    margin: 0; /* Remove margens padrão ao redor da imagem */
+    margin: 0;
 }
 
-/* Nome do amigo */
 .friend-name {
     font-size: 16px;
     color: #333;
@@ -64,25 +58,22 @@
     text-decoration: underline;
 }
 
-/* Estilos adicionais para a imagem de perfil pequena */
 .profile-pic-small {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ddd; /* Pequeno contorno para destaque */
+    border: 2px solid #ddd;
 }
 
-/* Seção de postagens */
 .user-posts {
-    flex: 1; /* Ocupa o restante da largura disponível */
-    max-width: 800px; /* Define uma largura máxima */
+    flex: 1;
+    max-width: 800px;
 }
 
-/* Estilos das abas */
 .tabs {
     display: flex;
-    gap: 10px; /* Espaçamento entre os botões */
+    gap: 10px;
     margin-bottom: 20px;
 }
 
@@ -106,16 +97,14 @@
     background-color: #ccc;
 }
 
-/* Conteúdo das abas */
 .tab-content {
-    display: none; /* Esconde o conteúdo inicialmente */
+    display: none; 
 }
 
 .tab-content.active {
-    display: block; /* Mostra o conteúdo ativo */
+    display: block;
 }
 
-/* Estilos dos posts */
 .post {
     border: 1px solid #ddd;
     padding: 15px;
@@ -125,12 +114,11 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Imagem de perfil grande */
 .profile-picture {
     width: 100%;
     max-width: 324px;
     height: 385px;
-    object-fit: cover; /* Mantém a proporção e corta se necessário */
+    object-fit: cover;
     border-radius: 8px;
     border: 2px solid #ddd;
     background-color: white;
